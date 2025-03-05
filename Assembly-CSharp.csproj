@@ -61,9 +61,11 @@
     <Analyzer Include="D:\Unity Hub\UnityEditor\6000.0.32f1\6000.0.32f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\_Scripts\GameManager.cs" />
     <Compile Include="Assets\_Scripts\SpawnerManager.cs" />
     <Compile Include="Assets\_Sprites\Monster Demo\Monster Demo\Unity Asset\Chibi Monster Free (Unique Skill Animated Prefab with SFX)\Demo\Script\PrefabSpawner.cs" />
+    <Compile Include="Assets\PlayerAttackController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_Sprites\COPY SPRIGHT\Comic Battle Royale\2D Character - Astronaut\Documentation.txt" />
