@@ -67,6 +67,7 @@
     <Compile Include="Assets\_Scripts\GameManager.cs" />
     <Compile Include="Assets\_Scripts\SpawnerManager.cs" />
     <Compile Include="Assets\_Sprites\Monster Demo\Monster Demo\Unity Asset\Chibi Monster Free (Unique Skill Animated Prefab with SFX)\Demo\Script\PrefabSpawner.cs" />
+    <Compile Include="Assets\_Scripts\Enemy\EmenyComtroller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_Sprites\COPY SPRIGHT\Comic Battle Royale\2D Character - Astronaut\Documentation.txt" />
