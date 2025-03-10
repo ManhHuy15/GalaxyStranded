@@ -1,21 +1,24 @@
-using NUnit.Framework;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
+using Debug = UnityEngine.Debug;
 
 public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private float _moveSpeed = 2f;
-
-    [SerializeField] private List<GameObject> BowIdle = new List<GameObject>();
-
+    [SerializeField] private List<GameObject> PlayerIdle = new List<GameObject>();
+    [SerializeField] private List<GameObject> PlayerWalk = new List<GameObject>();
+    [SerializeField] GameObject arrowPrefab;
+    [SerializeField] bool isSword ;
     private Vector3 _input;
-
+    private Vector2 lastDirect;
     private float x;
     private float y;
     private Rigidbody2D _rb;
+    private float currentTime;
     //private Animator _animator;
+
     private bool _isMoving;
     void Start()
     {
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour
         GetInput();
         //Animate();
         Direction();
+        Attack();
     }
 
     private void FixedUpdate()
@@ -41,7 +45,8 @@ public class PlayerController : MonoBehaviour
         y = Input.GetAxisRaw("Vertical");
 
         _input = new Vector2(x, y).normalized;
-            
+        _isMoving = _input.magnitude > 0.1f;
+
     }
 
     private void Move()
@@ -51,35 +56,85 @@ public class PlayerController : MonoBehaviour
 
     private void Direction()
     {
-        if( _input.x > 0)
+        if (_input.magnitude > 0.1f || _input.magnitude < -0.1f)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            DisableAllObject();
-            BowIdle[1].SetActive(true);
-        }
-        else if (_input.x < 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-            DisableAllObject();
-            BowIdle[1].SetActive(true);
-        }
+            if (_input.x > 0)
+                transform.localScale = new Vector3(-1, 1, 1); 
+            else if (_input.x < 0)
+                transform.localScale = new Vector3(1, 1, 1); 
 
-        if (_input.y > 0) {
-            DisableAllObject();
-            BowIdle[2].SetActive(true);
-        }else if (_input.y < 0)
+            if (Mathf.Abs(x) > Mathf.Abs(y))
+            {
+                if (x != 0 && !PlayerWalk[1].activeSelf)
+                {
+                    DisableAllObject();
+                    PlayerWalk[1].SetActive(true);
+                    lastDirect = new Vector2(x, 0);
+                }
+            }
+            else 
+            {
+                if (y > 0 && !PlayerWalk[2].activeSelf)
+                {
+                    DisableAllObject();
+                    PlayerWalk[2].SetActive(true);
+                    lastDirect = new Vector2(0, y);
+                }
+                else if (y < 0 && !PlayerWalk[0].activeSelf) 
+                {
+                    DisableAllObject();
+                    PlayerWalk[0].SetActive(true);
+                    lastDirect = new Vector2(0, y);
+                }
+            }
+        }
+        else 
         {
-            DisableAllObject();
-            BowIdle[0].SetActive(true);
+            if (lastDirect.x != 0 && !PlayerIdle[1].activeSelf)
+            {
+                DisableAllObject();
+                PlayerIdle[1].SetActive(true);
+                
+            }
+            else if (lastDirect.y < 0 && !PlayerIdle[0].activeSelf)
+            {
+                DisableAllObject();
+                PlayerIdle[0].SetActive(true);
+            }else if (lastDirect.y > 0 && !PlayerIdle[2].activeSelf)
+            {
+                DisableAllObject();
+                PlayerIdle[2].SetActive(true);
+            }
         }
     }
 
-
     private void DisableAllObject()
     {
-        for (int i = 0; i < BowIdle.Count; i++)
+        foreach (GameObject obj in PlayerIdle)
         {
-            BowIdle[i].SetActive(false);
+            obj.SetActive(false);
+        }
+        foreach (GameObject obj in PlayerWalk)
+        {
+            obj.SetActive(false);
+        }
+    }
+
+    void Attack()
+    {
+        if(isSword) return;
+        currentTime += Time.deltaTime;
+        if (currentTime < 1f) return;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject bows = GameObject.FindGameObjectWithTag("Bow");
+            Vector3 spawnOffset = bows.transform.forward * 0.5f;
+            Vector3 pos = bows.transform.position + spawnOffset;
+            pos.z = -1f;
+
+            float angle = Mathf.Atan2(lastDirect.y, lastDirect.x) * Mathf.Rad2Deg;
+            SpawnerManager.Instance.SpawnObject(arrowPrefab, pos, Quaternion.Euler(0, 0, angle));
+            currentTime = 0;
         }
     }
 
