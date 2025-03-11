@@ -1,16 +1,27 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] private float _moveSpeed = 2f;
-    [SerializeField] private List<GameObject> PlayerIdle = new List<GameObject>();
-    [SerializeField] private List<GameObject> PlayerWalk = new List<GameObject>();
-    [SerializeField] GameObject arrowPrefab;
-    [SerializeField] bool isSword ;
+    
+    [SerializeField] private List<GameObject> BowIdle = new List<GameObject>();
+    [SerializeField] private List<GameObject> BowrWalk = new List<GameObject>();
+    [SerializeField] private List<GameObject> SwordIdle = new List<GameObject>();
+    [SerializeField] private List<GameObject> SwordWalk = new List<GameObject>();
+    [SerializeField] private GameObject arrowPrefab;
+    [SerializeField] private Image cooldownImage;
+    [SerializeField] private Text numberArrow;
+    [SerializeField] private bool isSword;
+    [SerializeField] private int totalArrow = 10;
+    [SerializeField] private float _moveSpeed = 3f;
+
+
+    private List<GameObject> PlayerIdle = new List<GameObject>();
+    private List<GameObject> PlayerWalk = new List<GameObject>();
     private Vector3 _input;
     private Vector2 lastDirect;
     private float x;
@@ -22,16 +33,22 @@ public class PlayerController : MonoBehaviour
     private bool _isMoving;
     void Start()
     {
+        PlayerIdle = BowIdle;
+        PlayerWalk = BowrWalk;
+        DisableAllObject();
+        PlayerIdle[0].SetActive(true);
+        isSword = false;
         _rb = GetComponent<Rigidbody2D>();
-        //_animator = GetComponent<Animator>();
+        cooldownImage.fillAmount = 0f;
+        UpdateDisplayArrows();
     }
 
     void Update()
     {
         GetInput();
-        //Animate();
         Direction();
         Attack();
+        SwapWeapon();
     }
 
     private void FixedUpdate()
@@ -46,7 +63,6 @@ public class PlayerController : MonoBehaviour
 
         _input = new Vector2(x, y).normalized;
         _isMoving = _input.magnitude > 0.1f;
-
     }
 
     private void Move()
@@ -124,8 +140,10 @@ public class PlayerController : MonoBehaviour
     {
         if(isSword) return;
         currentTime += Time.deltaTime;
+        cooldownImage.fillAmount = 1 - ( currentTime / 1f);
         if (currentTime < 1f) return;
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetKeyDown(KeyCode.Space) && totalArrow > 0)
         {
             GameObject bows = GameObject.FindGameObjectWithTag("Bow");
             Vector3 spawnOffset = bows.transform.forward * 0.5f;
@@ -134,31 +152,35 @@ public class PlayerController : MonoBehaviour
 
             float angle = Mathf.Atan2(lastDirect.y, lastDirect.x) * Mathf.Rad2Deg;
             SpawnerManager.Instance.SpawnObject(arrowPrefab, pos, Quaternion.Euler(0, 0, angle));
+
             currentTime = 0;
+            cooldownImage.fillAmount = 1f;
+            totalArrow--;
+            UpdateDisplayArrows();
         }
     }
 
-    //private void Animate()
-    //{
-    //    if (_input.magnitude > 0.1f || _input.magnitude < -0.1f)
-    //    {
-    //        _isMoving = true;
+    private void UpdateDisplayArrows(int arrow = 0)
+    {
+        totalArrow += arrow;
+        numberArrow.text = totalArrow.ToString();
+    }
 
-    //        if (_input.x > 0) transform.localScale = new Vector3(-1, 1, 1);
-    //        else if (_input.x < 0) transform.localScale = new Vector3(1, 1, 1);
-
-    //    }
-    //    else
-    //    {
-    //        _isMoving = false;
-    //    }
-
-    //    if (_isMoving)
-    //    {
-    //        _animator.SetFloat("x", x);
-    //        _animator.SetFloat("y", y);
-    //    }
-    //    _animator.SetBool("Moving", _isMoving);
-
-    //}
+    private void SwapWeapon()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            DisableAllObject();
+            PlayerIdle = BowIdle;
+            PlayerWalk = BowrWalk;
+            isSword = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            DisableAllObject();
+            PlayerIdle = SwordIdle;
+            PlayerWalk = SwordWalk;
+            isSword = true;
+        }
+    }
 }
