@@ -5,10 +5,12 @@ public class EmenyComtroller : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float speed;
     [SerializeField] private float maxHP = 3;
+    [SerializeField] private float damage = 1;
     private float currentHp;
     void Start()
     {
         currentHp = maxHP;
+        target = GameObject.Find("Player").transform;
     }
 
     void OnEnable()
