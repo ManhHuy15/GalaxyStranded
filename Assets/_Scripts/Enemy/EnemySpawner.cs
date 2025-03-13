@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public WaveSO[] WaveSO;
-    public List<GameObject> EnemyPrefabs;
+    [SerializeField] protected WaveSO[] WaveSO;
+    [SerializeField] protected List<GameObject> EnemyPrefabs;
+    [SerializeField] protected List<Transform> points;
 
     private int curentWave = 0;
     private float currentTime;
@@ -23,9 +24,15 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnRandom()
     {
-        float posX = Random.Range(-9f, 9f);
+        Transform pos = GetRandomPoint();
         int randomEnemy = Random.Range(0, EnemyPrefabs.Count);
-        SpawnerManager.Instance.SpawnObject(EnemyPrefabs[randomEnemy], new Vector3(posX, 5, -2), Quaternion.identity);
+        SpawnerManager.Instance.SpawnObject(EnemyPrefabs[randomEnemy], pos.position, Quaternion.identity);
+    }
+
+    private Transform GetRandomPoint()
+    {
+        int rand = Random.Range(0, this.points.Count);
+        return this.points[rand];
     }
 
     private IEnumerator NextWaveRotine()
