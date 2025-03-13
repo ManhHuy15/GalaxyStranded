@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Text numberArrow;
     [SerializeField] private bool isSword;
     [SerializeField] private int totalArrow = 10;
-    [SerializeField] private float _moveSpeed = 3f;
+    [SerializeField] private float _moveSpeed = 2f;
 
 
     private List<GameObject> PlayerIdle = new List<GameObject>();
@@ -174,6 +174,7 @@ public class PlayerController : MonoBehaviour
             PlayerIdle = BowIdle;
             PlayerWalk = BowrWalk;
             isSword = false;
+            _moveSpeed = 2f;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -181,6 +182,7 @@ public class PlayerController : MonoBehaviour
             PlayerIdle = SwordIdle;
             PlayerWalk = SwordWalk;
             isSword = true;
+            _moveSpeed = 3f;
         }
     }
 }

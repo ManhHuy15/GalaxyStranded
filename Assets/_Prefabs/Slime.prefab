@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5209200681896147141}
   - component: {fileID: 4254311496043403597}
   - component: {fileID: 8336366330127128033}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Emeny
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,6 +129,14 @@ MonoBehaviour:
   speed: 1
   maxHP: 3
   damage: 1
+  avoidRadius: 0.4
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  isSlime: 1
+  stopDistance: 5
+  attackInterval: 3
+  ballPrefab: {fileID: 1080753226878608928, guid: f0c02732767a4f84ba8cbe2f0ddb259a, type: 3}
 --- !u!50 &4254311496043403597
 Rigidbody2D:
   serializedVersion: 5
@@ -186,7 +194,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

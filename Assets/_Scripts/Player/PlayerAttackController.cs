@@ -24,20 +24,17 @@ public class PlayerAttackController : MonoBehaviour
         {
             if (currentTime < 1f)return;
             _animator.SetBool("isAttack", true);
-            Debug.Log("Attack");
             currentTime = 0;
         }
 
         if (Input.GetKey(KeyCode.Space) && isSword)
         {
             _animator.SetBool("isAttack", true);
-            Debug.Log("Attack Swords");
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
             _animator.SetBool("isAttack", false);
-            Debug.Log("not Attack");
         }
     }
 }

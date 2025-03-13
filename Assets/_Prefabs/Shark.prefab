@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1297483341557333073}
   - component: {fileID: 6606957419921189819}
   - component: {fileID: 3649692842598220348}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shark
-  m_TagString: Untagged
+  m_TagString: Emeny
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,9 +126,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 1
+  speed: 2
   maxHP: 3
   damage: 1
+  avoidRadius: 0.4
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  isSlime: 0
+  stopDistance: 1
+  attackInterval: 1
+  ballPrefab: {fileID: 0}
 --- !u!50 &6606957419921189819
 Rigidbody2D:
   serializedVersion: 5
@@ -187,7 +195,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0.048991024, y: 0.047459662}
