@@ -28,6 +28,7 @@ public class BoxSpawner : MonoBehaviour
     void HanderBoxDestroyed()
     {
         boxCount++;
+        Debug.Log($"Box Destroyed, boxCount: {boxCount}");
     }
 
     void SpawnBoxWave()

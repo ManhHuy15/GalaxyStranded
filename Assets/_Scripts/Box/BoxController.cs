@@ -30,6 +30,7 @@ public class BoxController : MonoBehaviour
             Destroy(gameObject);
             SpawnRandomItem(boxPosition);
             OnBoxDestroyed?.Invoke();
+            Debug.Log("Box Destroyed!");
         }
     }
 
@@ -46,6 +47,15 @@ public class BoxController : MonoBehaviour
             Vector2 launchDirection = UnityEngine.Random.insideUnitCircle.normalized * dropForce;
             rb.linearVelocity = launchDirection;
             rb.AddTorque(UnityEngine.Random.Range(-3f, 3f), ForceMode2D.Impulse);
+        }
+
+        if(spawnedItem.CompareTag("bomb"))
+        {
+            BombController bomb = spawnedItem.GetComponent<BombController>();
+            if(bomb != null)
+            {
+                bomb.StartCountdown();
+            }
         }
     }
 }

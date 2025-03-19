@@ -51,6 +51,22 @@ public class PlayerController : MonoBehaviour
         SwapWeapon();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("heart"))
+        {
+
+        }
+        else if(collision.gameObject.CompareTag("arrow"))
+        {
+            UpdateDisplayArrows(5);
+        }
+        else if(collision.gameObject.CompareTag("bomb"))
+        {
+
+        }
+    }
+
     private void FixedUpdate()
     {
         Move();
