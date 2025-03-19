@@ -35,8 +35,9 @@ public class BoxController : MonoBehaviour
         int ramdomIndex = Random.Range(0, Items.Count);
         //SpawnerManager.Instance.SpawnObject(Items[ramdomIndex], position, Quaternion.identity);
 
-        GameObject spawnedItem = Instantiate(Items[ramdomIndex], position, Quaternion.identity);
+        GameObject spawnedItem = Instantiate(Items[ramdomIndex], position, Items[ramdomIndex].transform.rotation);
         Rigidbody2D rb = spawnedItem.GetComponent<Rigidbody2D>();
+        rb.freezeRotation = true;
         if (rb != null)
         {
             Vector2 launchDirection = Random.insideUnitCircle.normalized * dropForce;
