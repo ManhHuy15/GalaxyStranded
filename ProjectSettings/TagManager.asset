@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Bow
   - Enemy
+  - Emeny
+  - Arrow
+  - Sword
   layers:
   - Default
   - TransparentFX

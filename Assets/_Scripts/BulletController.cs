@@ -31,7 +31,7 @@ public class BulletController : MonoBehaviour
             Debug.Log("Hit Player");
             gameObject.SetActive(false);
         }
-        else if (gameObject.name == "Arrow" && collision.gameObject.tag == "Enemy")
+        else if (gameObject.name == "Arrow" && collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Hit Enemy");
             gameObject.SetActive(false);
