@@ -68,6 +68,7 @@
     <Compile Include="Assets\_Sprites\Monster Demo\Monster Demo\Unity Asset\Chibi Monster Free (Unique Skill Animated Prefab with SFX)\Demo\Script\PrefabSpawner.cs" />
     <Compile Include="Assets\_Scripts\Enemy\EmenyComtroller.cs" />
     <Compile Include="Assets\_Scripts\Enemy\EnemySpawner.cs" />
+    <Compile Include="Assets\_Scripts\Box\BoxSpawner.cs" />
     <Compile Include="Assets\_Scripts\BulletController.cs" />
     <Compile Include="Assets\_Scripts\Box\BoxController.cs" />
     <Compile Include="Assets\_Scripts\ScriptableObject\WaveSO.cs" />
