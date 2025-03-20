@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 using Debug = UnityEngine.Debug;
 
 public class PlayerController : MonoBehaviour
@@ -18,8 +19,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isSword;
     [SerializeField] private int totalArrow = 10;
     [SerializeField] private float _moveSpeed = 2f;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private float maxHealth = 100f;
 
-
+    private float currentHealth;
     private List<GameObject> PlayerIdle = new List<GameObject>();
     private List<GameObject> PlayerWalk = new List<GameObject>();
     private Vector3 _input;
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private float y;
     private Rigidbody2D _rb;
     private float currentTime;
+    private bool onAttack = false;
     //private Animator _animator;
 
     private bool _isMoving;
@@ -40,6 +44,8 @@ public class PlayerController : MonoBehaviour
         isSword = false;
         _rb = GetComponent<Rigidbody2D>();
         cooldownImage.fillAmount = 0f;
+        currentHealth = maxHealth;
+        healthBar.fillAmount = currentHealth / maxHealth;
         UpdateDisplayArrows();
     }
 
@@ -139,9 +145,9 @@ public class PlayerController : MonoBehaviour
     void Attack()
     {
         if(isSword) return;
-        currentTime += Time.deltaTime;
+            currentTime += Time.deltaTime;
         cooldownImage.fillAmount = 1 - ( currentTime / 1f);
-        if (currentTime < 1f) return;
+            if (currentTime < 1f) return;
 
         if (Input.GetKeyDown(KeyCode.Space) && totalArrow > 0)
         {
@@ -158,7 +164,7 @@ public class PlayerController : MonoBehaviour
             totalArrow--;
             UpdateDisplayArrows();
         }
-    }
+        }
 
     private void UpdateDisplayArrows(int arrow = 0)
     {
@@ -183,6 +189,16 @@ public class PlayerController : MonoBehaviour
             PlayerWalk = SwordWalk;
             isSword = true;
             _moveSpeed = 3f;
+        }
+    }
+
+    public void TakeDame(float dame)
+    {
+        currentHealth-= dame;
+        healthBar.fillAmount = currentHealth / maxHealth;
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Dead");
         }
     }
 }

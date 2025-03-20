@@ -101,6 +101,11 @@ public class EmenyComtroller : MonoBehaviour
             _animator.SetBool("isAttack", true);
             currentTime = 0;
         }
+        else if (!isSlime && distanceToPlayer <= stopDistance)
+        {
+            _animator.SetBool("isAttack", true);
+            currentTime = 0;
+        }
         else
         {
             _animator.SetBool("isAttack", false);
@@ -116,5 +121,23 @@ public class EmenyComtroller : MonoBehaviour
         Vector2 direct = (target.transform.position - transform.position).normalized;
         float angle = Mathf.Atan2(direct.y, direct.x) * Mathf.Rad2Deg;
         SpawnerManager.Instance.SpawnObject(ballPrefab, pos, Quaternion.Euler(0, 0, angle));
+    }
+
+    public void TakeDame( float dame, Vector2 knockback)
+    {
+        currentHp -= dame; 
+        if (knockback != Vector2.zero)
+        {
+            GetComponent<Rigidbody2D>().AddForce(knockback, ForceMode2D.Impulse);
+        }
+        if (currentHp <= 0)
+        {
+            _animator.SetBool("isDead", true);
+        }
+    }
+
+    void OnDead()
+    {
+        gameObject.SetActive(false);
     }
 }

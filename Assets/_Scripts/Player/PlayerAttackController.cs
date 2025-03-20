@@ -5,7 +5,9 @@ public class PlayerAttackController : MonoBehaviour
 
     private Animator _animator;
     private float currentTime;
+    private float knockBackForce = 5f;
     [SerializeField] private bool isSword;
+
     void Start()
     {
         _animator = GetComponent<Animator>();
@@ -27,7 +29,7 @@ public class PlayerAttackController : MonoBehaviour
             currentTime = 0;
         }
 
-        if (Input.GetKey(KeyCode.Space) && isSword)
+        if (Input.GetKeyDown(KeyCode.Space) && isSword)
         {
             _animator.SetBool("isAttack", true);
         }
@@ -35,6 +37,21 @@ public class PlayerAttackController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             _animator.SetBool("isAttack", false);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Vector3 parentPos = transform.parent.position;
+
+            Vector2 direction =   collision.gameObject.transform.position - parentPos ;
+            direction.Normalize();
+
+            Vector2 force = direction * knockBackForce;
+
+            collision.gameObject.GetComponent<EmenyComtroller>().TakeDame(2f, force);
         }
     }
 }

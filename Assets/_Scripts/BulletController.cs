@@ -28,13 +28,13 @@ public class BulletController : MonoBehaviour
 
         if (gameObject.name == "Ball" &&  collision.gameObject.tag == "Player")
         {
-            Debug.Log("Hit Player");
             gameObject.SetActive(false);
+            collision.gameObject.GetComponent<PlayerController>().TakeDame(10);
         }
         else if (gameObject.name == "Arrow" && collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Hit Enemy");
             gameObject.SetActive(false);
+            collision.gameObject.GetComponent<EmenyComtroller>().TakeDame(1, Vector2.zero);
         }
 
         
