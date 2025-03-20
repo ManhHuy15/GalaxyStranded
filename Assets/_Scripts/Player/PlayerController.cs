@@ -51,18 +51,23 @@ public class PlayerController : MonoBehaviour
         SwapWeapon();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("heart"))
+        if (collision.gameObject.CompareTag("Heart"))
         {
-
+            Debug.Log("Receive heart");
+            collision.gameObject.SetActive(false);
         }
-        else if(collision.gameObject.CompareTag("arrow"))
+        else if (collision.gameObject.CompareTag("Arrow"))
         {
+            Debug.Log("Receive arrow");
+            collision.gameObject.SetActive(false);
             UpdateDisplayArrows(5);
         }
-        else if(collision.gameObject.CompareTag("bomb"))
+        else if (collision.gameObject.CompareTag("Bomb"))
         {
+            Debug.Log("Receive bomb");
+            // TO DO: take dame for player
 
         }
     }

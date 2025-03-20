@@ -36,6 +36,10 @@ public class BulletController : MonoBehaviour
             Debug.Log("Hit Enemy");
             gameObject.SetActive(false);
         }
+        else if (gameObject.name == "Arrow" && collision.gameObject.CompareTag("Box"))
+        {
+            gameObject.SetActive(false);
+        }
 
         
     }

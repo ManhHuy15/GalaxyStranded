@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3649692842598220348}
   m_Layer: 10
   m_Name: Shark
-  m_TagString: Emeny
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

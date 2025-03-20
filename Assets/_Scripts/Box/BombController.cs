@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class BombController : MonoBehaviour
 {
-    public float blastRadius = 0.5f;
+    public float blastRadius = 2f;
     public float timeDelay = 2f;
+    public Animator _animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _animator = GetComponent<Animator>();
+        StartCoroutine(ExplodeAfterDelay());    
     }
 
     // Update is called once per frame
@@ -31,30 +33,11 @@ public class BombController : MonoBehaviour
 
     private void Blast()
     {
-        Debug.Log("Bomb blast!");
-
-        // Tạo một vùng ảnh hưởng xung quanh vị trí của bomb
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, blastRadius);
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.CompareTag("Player") || collider.CompareTag("Enemy"))
-            {
-                Debug.Log($"{collider.name} bị ảnh hưởng bởi vụ nổ!");
-                // Gọi hàm gây sát thương nếu cần
-                // collider.GetComponent<Health>()?.TakeDamage(damage);
-            }
-        }
-
-        // Hiển thị hiệu ứng nổ (nếu có)
-        // Instantiate(explosionEffect, transform.position, Quaternion.identity);
-
-        Destroy(gameObject);
+        _animator.SetBool("isExplosion", true);
     }
 
-    private void OnDrawGizmosSelected()
+    public void Disable()
     {
-        // Vẽ bán kính vụ nổ để dễ debug
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, blastRadius);
+        gameObject.SetActive(false);
     }
 }

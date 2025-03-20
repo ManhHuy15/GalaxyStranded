@@ -9,6 +9,9 @@ TagManager:
   - Emeny
   - Arrow
   - Sword
+  - Box
+  - Heart
+  - Bomb
   layers:
   - Default
   - TransparentFX

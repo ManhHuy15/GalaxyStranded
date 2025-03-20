@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6381894026461660961}
   m_Layer: 0
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   - {fileID: 3781659561106796372, guid: 3c34eccd886dd074087eb5df63e7cb33, type: 3}
   - {fileID: 8333824047787711863, guid: f6f35c695351fb74c9893edf82bbf154, type: 3}
   - {fileID: 6418307849069838675, guid: 2bf0e632dc871ea4fb2e59488e1630fa, type: 3}
+  dropForce: 10
 --- !u!50 &3243632627910940267
 Rigidbody2D:
   serializedVersion: 5

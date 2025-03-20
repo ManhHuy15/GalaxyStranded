@@ -23,11 +23,13 @@ public class BoxController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Arrow") || collision.gameObject.CompareTag("Sword"))
+        if (collision.gameObject.CompareTag("Arrow") || 
+            collision.gameObject.CompareTag("Sword") || 
+            collision.gameObject.CompareTag("Bomb"))
         {
             Debug.Log("Atack box secret");
             Vector2 boxPosition = transform.position;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             SpawnRandomItem(boxPosition);
             OnBoxDestroyed?.Invoke();
             Debug.Log("Box Destroyed!");
@@ -49,7 +51,7 @@ public class BoxController : MonoBehaviour
             rb.AddTorque(UnityEngine.Random.Range(-3f, 3f), ForceMode2D.Impulse);
         }
 
-        if(spawnedItem.CompareTag("bomb"))
+        if(spawnedItem.CompareTag("Bomb"))
         {
             BombController bomb = spawnedItem.GetComponent<BombController>();
             if(bomb != null)

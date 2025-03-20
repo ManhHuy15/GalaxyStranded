@@ -37,6 +37,15 @@ public class EmenyComtroller : MonoBehaviour
         Attack();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Bomb"))
+        {
+            // TODO: destroy enemy, set active = false
+            
+        }
+    }
+
     private void FollowTarget()
     {
         Vector2 targetPos = new Vector2(target.position.x, target.position.y);
@@ -117,4 +126,6 @@ public class EmenyComtroller : MonoBehaviour
         float angle = Mathf.Atan2(direct.y, direct.x) * Mathf.Rad2Deg;
         SpawnerManager.Instance.SpawnObject(ballPrefab, pos, Quaternion.Euler(0, 0, angle));
     }
+
+
 }
