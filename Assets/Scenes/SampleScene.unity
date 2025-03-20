@@ -242,7 +242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
 --- !u!1 &41416921
 GameObject:
@@ -819,7 +818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &239450968
 Animator:
@@ -1132,75 +1130,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1498626655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &348123660
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 348123661}
-  - component: {fileID: 348123662}
-  m_Layer: 0
-  m_Name: hit_box
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &348123661
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348123660}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.060000002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2074499099}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &348123662
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348123660}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.22254318, y: 0.35740253}
-  m_Size: {x: 1.3074256, y: 0.7271921}
-  m_Direction: 1
 --- !u!1 &381859812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,7 +1496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &417284259
 Animator:
   serializedVersion: 7
@@ -1796,7 +1725,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &435546015
 Animator:
@@ -2541,7 +2469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &509632231
 Animator:
@@ -2923,7 +2850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &521760208
 Animator:
@@ -3197,7 +3123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
 --- !u!1 &612813205
 GameObject:
@@ -3656,7 +3581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!1 &640875699
 GameObject:
@@ -3881,7 +3805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
 --- !u!95 &675653969
 Animator:
@@ -4188,7 +4111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
 --- !u!1 &709380385
 GameObject:
@@ -4400,7 +4322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!1 &741846536
 GameObject:
@@ -4664,6 +4585,7 @@ GameObject:
   - component: {fileID: 803633238}
   - component: {fileID: 803633237}
   - component: {fileID: 803633236}
+  - component: {fileID: 803633239}
   m_Layer: 0
   m_Name: weapon_sword_idle_side
   m_TagString: Untagged
@@ -4683,8 +4605,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.22, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1835236010}
+  m_Children: []
   m_Father: {fileID: 675653971}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &803633236
@@ -4699,7 +4620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 1835236009}
   isSword: 1
 --- !u!95 &803633237
 Animator:
@@ -4778,6 +4698,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &803633239
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803633234}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.60251284, y: -0.03394437}
+  m_Size: {x: 0.76330996, y: 1.3743086}
+  m_Direction: 0
 --- !u!1 &829113088
 GameObject:
   m_ObjectHideFlags: 0
@@ -5100,7 +5057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &903065098
 Animator:
@@ -5910,7 +5866,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!1 &1117145430
 GameObject:
@@ -6132,7 +6087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &1128085481
 Animator:
@@ -6589,7 +6543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &1145889096
 Animator:
@@ -6922,7 +6875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!1 &1226152313
 GameObject:
@@ -7153,77 +7105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
---- !u!1 &1263007476
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1263007477}
-  - component: {fileID: 1263007478}
-  m_Layer: 0
-  m_Name: hit_box
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1263007477
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263007476}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1816891346}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &1263007478
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263007476}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.26759025, y: -0.59029055}
-  m_Size: {x: 1.1663724, y: 0.63825816}
-  m_Direction: 1
 --- !u!1 &1303086816
 GameObject:
   m_ObjectHideFlags: 0
@@ -7426,7 +7308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!1 &1350903533
 GameObject:
@@ -7732,7 +7613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &1431025679
 Animator:
@@ -7888,7 +7768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &1448385122
 Animator:
@@ -8182,7 +8061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!1 &1457412220
 GameObject:
@@ -8440,7 +8318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!1 &1509636056
 GameObject:
@@ -8518,7 +8395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
 --- !u!95 &1522568568
 Animator:
@@ -8961,7 +8837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!1 &1544101975
 GameObject:
@@ -9090,7 +8965,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &1545032689
 Animator:
@@ -9501,7 +9375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
 --- !u!95 &1598703620
 Animator:
@@ -9705,7 +9578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
 --- !u!1 &1640810521
 GameObject:
@@ -9753,7 +9625,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
 --- !u!95 &1640810524
 Animator:
@@ -10245,7 +10116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
 --- !u!1 &1724484121
 GameObject:
@@ -21203,7 +21073,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
 --- !u!1 &1803910245
 GameObject:
@@ -21345,6 +21214,7 @@ GameObject:
   - component: {fileID: 1816891349}
   - component: {fileID: 1816891348}
   - component: {fileID: 1816891347}
+  - component: {fileID: 1816891350}
   m_Layer: 0
   m_Name: weapon_sword_idle_down
   m_TagString: Untagged
@@ -21364,8 +21234,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.2, z: -0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1263007477}
+  m_Children: []
   m_Father: {fileID: 1522568570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1816891347
@@ -21380,7 +21249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 1263007476}
   isSword: 1
 --- !u!95 &1816891348
 Animator:
@@ -21459,6 +21327,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1816891350
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816891345}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.31781673, y: -0.57906216}
+  m_Size: {x: 1.2810776, y: 0.6411925}
+  m_Direction: 1
 --- !u!1 &1831613855
 GameObject:
   m_ObjectHideFlags: 0
@@ -21538,75 +21443,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831613855}
   m_CullTransparentMesh: 1
---- !u!1 &1835236009
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1835236010}
-  - component: {fileID: 1835236011}
-  m_Layer: 0
-  m_Name: hit_box
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1835236010
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835236009}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.05}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 803633235}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &1835236011
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835236009}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.6136724, y: 0.022914529}
-  m_Size: {x: 0.65711236, y: 1.3961473}
-  m_Direction: 0
 --- !u!1 &1858764200
 GameObject:
   m_ObjectHideFlags: 0
@@ -21948,7 +21784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1944560811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21961,7 +21797,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
 --- !u!95 &1944560812
 Animator:
@@ -22180,7 +22015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 1
 --- !u!1 &1956376089
 GameObject:
@@ -22630,7 +22464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &1975711688
 Animator:
@@ -22755,7 +22588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &1978141910
 Animator:
@@ -22880,7 +22712,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &1983896976
 Animator:
@@ -23005,7 +22836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
   isSword: 0
 --- !u!95 &1993552581
 Animator:
@@ -23333,6 +23163,7 @@ GameObject:
   - component: {fileID: 2074499102}
   - component: {fileID: 2074499101}
   - component: {fileID: 2074499100}
+  - component: {fileID: 2074499103}
   m_Layer: 0
   m_Name: weapon_sword_idle_up
   m_TagString: Untagged
@@ -23352,8 +23183,7 @@ Transform:
   m_LocalPosition: {x: -0, y: -0.22, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 348123661}
+  m_Children: []
   m_Father: {fileID: 1944560814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2074499100
@@ -23368,7 +23198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336698479e5ccd1479cd447363cc35dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 348123660}
   isSword: 1
 --- !u!95 &2074499101
 Animator:
@@ -23447,6 +23276,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &2074499103
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074499098}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.11880394, y: 0.56008416}
+  m_Size: {x: 1.170651, y: 0.70756847}
+  m_Direction: 1
 --- !u!1 &2099634126
 GameObject:
   m_ObjectHideFlags: 0
