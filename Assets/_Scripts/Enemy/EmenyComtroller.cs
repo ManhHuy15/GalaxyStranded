@@ -5,7 +5,6 @@ public class EmenyComtroller : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float maxHP = 3f;
-    [SerializeField] private float damage = 1f;
     [SerializeField] private float avoidRadius = 0.4f;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private bool isSlime;
