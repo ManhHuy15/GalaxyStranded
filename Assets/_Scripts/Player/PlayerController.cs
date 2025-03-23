@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
     private float y;
     private Rigidbody2D _rb;
     private float currentTime;
-    private bool onAttack = false;
     //private Animator _animator;
 
     private bool _isMoving;

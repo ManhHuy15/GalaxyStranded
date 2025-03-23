@@ -8,3 +8,11 @@ public class WaveSO : ScriptableObject
    public float timeBetweenWave;
    public float spawnDelay;
 }
+
+public class Wave
+{
+    public string waveName;
+    public int numberOfEnemies;
+    public float timeBetweenWave;
+    public float spawnDelay;
+}

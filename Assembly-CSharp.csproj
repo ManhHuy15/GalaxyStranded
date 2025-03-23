@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Scripts\Player\PlayerAttackController.cs" />
+    <Compile Include="Assets\_Scripts\Enemy\SharkAttack.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\_Scripts\GameManager.cs" />
     <Compile Include="Assets\_Scripts\SpawnerManager.cs" />
