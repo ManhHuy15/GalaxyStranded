@@ -44,11 +44,32 @@ public class BoxController : MonoBehaviour
         GameObject spawnedItem = Instantiate(Items[ramdomIndex], position, Items[ramdomIndex].transform.rotation);
         Rigidbody2D rb = spawnedItem.GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
+
         if (rb != null)
         {
             Vector2 launchDirection = UnityEngine.Random.insideUnitCircle.normalized * dropForce;
-            rb.linearVelocity = launchDirection;
-            rb.AddTorque(UnityEngine.Random.Range(-3f, 3f), ForceMode2D.Impulse);
+            if(spawnedItem.CompareTag("Arrow"))
+            {
+                int arrowCount = UnityEngine.Random.Range(1, 6);
+                for (int i = 0; i < arrowCount; i++)
+                {
+                    launchDirection = UnityEngine.Random.insideUnitCircle.normalized * dropForce;
+                    GameObject arrow = Instantiate(spawnedItem, position, spawnedItem.transform.rotation);
+                    Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
+                    if (arrowRb != null)
+                    {
+                        arrowRb.linearVelocity = launchDirection;
+                        arrowRb.AddTorque(UnityEngine.Random.Range(-3f, 3f), ForceMode2D.Impulse);
+                    }
+                }
+            }
+            else
+            {
+                launchDirection = UnityEngine.Random.insideUnitCircle.normalized * dropForce;
+                rb.linearVelocity = launchDirection;
+                rb.AddTorque(UnityEngine.Random.Range(-3f, 3f), ForceMode2D.Impulse);
+            }
+            
         }
 
         if(spawnedItem.CompareTag("Bomb"))
