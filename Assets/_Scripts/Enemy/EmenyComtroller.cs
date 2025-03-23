@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class EmenyComtroller : MonoBehaviour
@@ -5,18 +6,19 @@ public class EmenyComtroller : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float maxHP = 3f;
-    [SerializeField] private float avoidRadius = 0.4f;
+    [SerializeField] private float avoidRadius = 0.5f;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private bool isSlime;
     [SerializeField] private float stopDistance = 5f;
     [SerializeField] private float attackInterval = 1f;
     [SerializeField] private GameObject ballPrefab;
+    [SerializeField] private GameObject healtTextPrefab;
     
     private float currentTime = 0f;
     private float currentHp;
     private float distanceToPlayer;
     private Animator _animator;
-
+    public float StopDistance { get => stopDistance; set => stopDistance = value; }
     void Start()
     {
         currentHp = maxHP;
@@ -100,6 +102,11 @@ public class EmenyComtroller : MonoBehaviour
             _animator.SetBool("isAttack", true);
             currentTime = 0;
         }
+        else if (!isSlime && distanceToPlayer <= stopDistance)
+        {
+            _animator.SetBool("isAttack", true);
+            currentTime = 0;
+        }
         else
         {
             _animator.SetBool("isAttack", false);
@@ -115,5 +122,29 @@ public class EmenyComtroller : MonoBehaviour
         Vector2 direct = (target.transform.position - transform.position).normalized;
         float angle = Mathf.Atan2(direct.y, direct.x) * Mathf.Rad2Deg;
         SpawnerManager.Instance.SpawnObject(ballPrefab, pos, Quaternion.Euler(0, 0, angle));
+    }
+
+    public void TakeDame( float dame, Vector2 knockback)
+    {
+        currentHp -= dame; 
+        var pos = Camera.main.WorldToScreenPoint(transform.position);
+        Canvas canvasParent = GameObject.Find("Canvas").GetComponent<Canvas>();
+        healtTextPrefab.GetComponent<TextMeshProUGUI>().text = dame.ToString();
+        GameObject dameText = SpawnerManager.Instance.SpawnObject(healtTextPrefab, pos, Quaternion.identity, canvasParent.gameObject);
+
+        if (knockback != Vector2.zero)
+        {
+            GetComponent<Rigidbody2D>().AddForce(knockback, ForceMode2D.Impulse);
+        }
+        if (currentHp <= 0)
+        {
+            _animator.SetBool("isDead", true);
+            currentHp = maxHP;
+        }
+    }
+
+    void OnDead()
+    {
+        gameObject.SetActive(false);
     }
 }
