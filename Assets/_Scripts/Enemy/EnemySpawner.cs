@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] protected WaveSO[] WaveSO;
+    [SerializeField] protected Wave Wave;
     [SerializeField] protected List<GameObject> EnemyPrefabs;
     [SerializeField] protected List<Transform> points;
     [SerializeField] protected GameObject waveUI;
@@ -19,6 +20,11 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        Wave = new Wave();
+        Wave.numberOfEnemies = 5;
+        Wave.spawnDelay = 2f;
+        Wave.waveName = "Wave " + curentWave.ToString();
+        Wave.timeBetweenWave = 5f;
         StartCoroutine(NextWaveRotine());
     }
 
@@ -32,6 +38,10 @@ public class EnemySpawner : MonoBehaviour
     {
         Transform pos = GetRandomPoint();
         int randomEnemy = Random.Range(0, EnemyPrefabs.Count);
+
+        GameObject enemy = EnemyPrefabs[randomEnemy];
+        if(enemy.name == "Slime") enemy.GetComponent<EmenyComtroller>().StopDistance = Random.Range(2f, 5f);
+        else enemy.GetComponent<EmenyComtroller>().StopDistance = 1f;
         SpawnerManager.Instance.SpawnObject(EnemyPrefabs[randomEnemy], pos.position, Quaternion.identity);
         countEnemy++;
     }
@@ -44,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator NextWaveRotine()
     {
-        yield return new WaitForSeconds(WaveSO[curentWave].timeBetweenWave);
+        yield return new WaitForSeconds(Wave.timeBetweenWave);
         NextWave();
     }
 
@@ -52,16 +62,25 @@ public class EnemySpawner : MonoBehaviour
     {
         curentWave++;
         Debug.Log("Wave " + curentWave);
-        if (curentWave < WaveSO.Length)
-        {
-            AnimationWaveChange();
-        }
+        //if (curentWave < WaveSO.Length)
+        //{
+        UpdateWave();
+        AnimationWaveChange();
+        //}
+    }
+
+    void UpdateWave()
+    {
+        Wave.numberOfEnemies += 5 ;
+        Wave.spawnDelay -= 0.2f;
+        Wave.waveName = "Wave " + curentWave.ToString();
+        Wave.timeBetweenWave += 10f;
     }
 
     void AnimationWaveChange()
     {
         Animator animator = waveUI.GetComponent<Animator>();
-        waveText.text = WaveSO[curentWave].waveName;
+        waveText.text = Wave.waveName;
         animator.SetBool("isNextWave", true);
         stopSpawn = true;
         StartCoroutine(AnimationWaveChangeRotine());
@@ -77,15 +96,15 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnWave()
     {
-        if (curentWave >= WaveSO.Length) return;
-        if (countEnemy >= WaveSO[curentWave].numberOfEnemies)
+        //if (curentWave >= WaveSO.Length) return;
+        if (countEnemy >= Wave.numberOfEnemies)
         {
             countEnemy = 0;
             stopSpawn = true;
             return;
         };
 
-        if (currentTime >= WaveSO[curentWave].spawnDelay && !stopSpawn)
+        if (currentTime >= Wave.spawnDelay && !stopSpawn)
         {
             SpawnRandom();
             currentTime = 0;
