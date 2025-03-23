@@ -6,6 +6,7 @@ public class BulletController : MonoBehaviour
     [SerializeField] private float speed;
     private Camera mainCamera;
     float distanceLimit = 15f;
+    private float knockBackForce = 3f;
     void Start()
     {
         this.mainCamera = Transform.FindAnyObjectByType<Camera>();
@@ -33,8 +34,15 @@ public class BulletController : MonoBehaviour
         }
         else if (gameObject.name == "Arrow" && collision.gameObject.tag == "Enemy")
         {
+            Vector3 parentPos = transform.parent.position;
+
+            Vector2 direction = collision.gameObject.transform.position - transform.position;
+            direction.Normalize();
+
+            Vector2 force = direction * knockBackForce;
             gameObject.SetActive(false);
-            collision.gameObject.GetComponent<EmenyComtroller>().TakeDame(1, Vector2.zero);
+
+            collision.gameObject.GetComponent<EmenyComtroller>().TakeDame(1, force);
         }
 
         

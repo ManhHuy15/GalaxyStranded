@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class EmenyComtroller : MonoBehaviour
@@ -11,6 +12,7 @@ public class EmenyComtroller : MonoBehaviour
     [SerializeField] private float stopDistance = 5f;
     [SerializeField] private float attackInterval = 1f;
     [SerializeField] private GameObject ballPrefab;
+    [SerializeField] private GameObject healtTextPrefab;
     
     private float currentTime = 0f;
     private float currentHp;
@@ -125,6 +127,11 @@ public class EmenyComtroller : MonoBehaviour
     public void TakeDame( float dame, Vector2 knockback)
     {
         currentHp -= dame; 
+        var pos = Camera.main.WorldToScreenPoint(transform.position);
+        Canvas canvasParent = GameObject.Find("Canvas").GetComponent<Canvas>();
+        healtTextPrefab.GetComponent<TextMeshProUGUI>().text = dame.ToString();
+        GameObject dameText = SpawnerManager.Instance.SpawnObject(healtTextPrefab, pos, Quaternion.identity, canvasParent.gameObject);
+
         if (knockback != Vector2.zero)
         {
             GetComponent<Rigidbody2D>().AddForce(knockback, ForceMode2D.Impulse);
@@ -132,6 +139,7 @@ public class EmenyComtroller : MonoBehaviour
         if (currentHp <= 0)
         {
             _animator.SetBool("isDead", true);
+            currentHp = maxHP;
         }
     }
 

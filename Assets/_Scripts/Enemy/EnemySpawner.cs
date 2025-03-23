@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] protected List<GameObject> EnemyPrefabs;
     [SerializeField] protected List<Transform> points;
     [SerializeField] protected GameObject waveUI;
+    [SerializeField] protected Text waveName;
     [SerializeField] protected Text waveText;
 
     private int curentWave = 0;
@@ -80,7 +81,9 @@ public class EnemySpawner : MonoBehaviour
     void AnimationWaveChange()
     {
         Animator animator = waveUI.GetComponent<Animator>();
-        waveText.text = Wave.waveName;
+        waveName.text = Wave.waveName;
+        waveText.gameObject.SetActive(false);
+        waveText.text = "Wave " + curentWave.ToString();
         animator.SetBool("isNextWave", true);
         stopSpawn = true;
         StartCoroutine(AnimationWaveChangeRotine());
@@ -91,6 +94,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(5f);
         waveUI.GetComponent<Animator>().SetBool("isNextWave", false);
         stopSpawn = false;
+        waveText.gameObject.SetActive(true);
         StartCoroutine(NextWaveRotine());
     }
 

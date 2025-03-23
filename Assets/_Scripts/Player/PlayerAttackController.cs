@@ -5,7 +5,7 @@ public class PlayerAttackController : MonoBehaviour
 
     private Animator _animator;
     private float currentTime;
-    private float knockBackForce = 5f;
+    private float knockBackForce = 8f;
     [SerializeField] private bool isSword;
 
     void Start()
