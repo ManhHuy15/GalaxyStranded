@@ -7,8 +7,6 @@ using Debug = UnityEngine.Debug;
 
 public class PlayerController : MonoBehaviour
 {
-
-    
     [SerializeField] private List<GameObject> BowIdle = new List<GameObject>();
     [SerializeField] private List<GameObject> BowrWalk = new List<GameObject>();
     [SerializeField] private List<GameObject> SwordIdle = new List<GameObject>();
@@ -54,6 +52,29 @@ public class PlayerController : MonoBehaviour
         Direction();
         Attack();
         SwapWeapon();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Heart"))
+        {
+            Debug.Log("Receive heart");
+            collision.gameObject.SetActive(false);
+            UpdateHp(currentHealth += 10);
+
+        }
+        else if (collision.gameObject.CompareTag("Arrow"))
+        {
+            Debug.Log("Receive arrow");
+            collision.gameObject.SetActive(false);
+            UpdateDisplayArrows(1);
+        }
+        else if (collision.gameObject.CompareTag("Bomb"))
+        {
+            Debug.Log("Receive bomb");
+            // TO DO: take dame for player
+
+        }
     }
 
     private void FixedUpdate()
@@ -193,11 +214,15 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDame(float dame)
     {
-        currentHealth-= dame;
-        healthBar.fillAmount = currentHealth / maxHealth;
+        UpdateHp(currentHealth -= dame);
         if (currentHealth <= 0)
         {
-            Debug.Log("Dead");
+            GameManager.Instance.GameOver();
         }
+    }
+
+    public void UpdateHp( float current)
+    {
+        healthBar.fillAmount = current / maxHealth;
     }
 }

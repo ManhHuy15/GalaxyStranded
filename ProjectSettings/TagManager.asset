@@ -9,6 +9,9 @@ TagManager:
   - Arrow
   - Sword
   - Canvas
+  - Box
+  - Heart
+  - Bomb
   layers:
   - Default
   - TransparentFX

@@ -32,7 +32,7 @@ public class BulletController : MonoBehaviour
             gameObject.SetActive(false);
             collision.gameObject.GetComponent<PlayerController>().TakeDame(10);
         }
-        else if (gameObject.name == "Arrow" && collision.gameObject.tag == "Enemy")
+        else if (gameObject.name == "Arrow" && collision.gameObject.CompareTag("Enemy"))
         {
             Vector3 parentPos = transform.parent.position;
 
@@ -43,6 +43,10 @@ public class BulletController : MonoBehaviour
             gameObject.SetActive(false);
 
             collision.gameObject.GetComponent<EmenyComtroller>().TakeDame(1, force);
+        }
+        else if (gameObject.name == "Arrow" && collision.gameObject.CompareTag("Box"))
+        {
+            gameObject.SetActive(false);
         }
 
         

@@ -38,6 +38,15 @@ public class EmenyComtroller : MonoBehaviour
         Attack();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Bomb"))
+        {
+            // TODO: destroy enemy, set active = false
+            
+        }
+    }
+
     private void FollowTarget()
     {
         Vector2 targetPos = new Vector2(target.position.x, target.position.y);
@@ -130,7 +139,7 @@ public class EmenyComtroller : MonoBehaviour
         var pos = Camera.main.WorldToScreenPoint(transform.position);
         Canvas canvasParent = GameObject.Find("Canvas").GetComponent<Canvas>();
         healtTextPrefab.GetComponent<TextMeshProUGUI>().text = dame.ToString();
-        GameObject dameText = SpawnerManager.Instance.SpawnObject(healtTextPrefab, pos, Quaternion.identity, canvasParent.gameObject);
+        GameObject dameText = SpawnerManager.Instance.SpawnObject(healtTextPrefab, pos, Quaternion.identity, null,canvasParent.gameObject);
 
         if (knockback != Vector2.zero)
         {

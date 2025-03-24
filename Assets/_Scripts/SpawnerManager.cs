@@ -33,7 +33,7 @@ public class SpawnerManager : MonoBehaviour
         return newPrefabs;
     }
 
-    public GameObject SpawnObject(GameObject prefab, Vector3 position, Quaternion rotation, GameObject parent = null, Action callback = null)
+    public GameObject SpawnObject(GameObject prefab, Vector3 position, Quaternion rotation, Action callback = null, GameObject parent = null)
     {
         GameObject gameObject = GetGameObject(prefab, parent);
 
@@ -46,6 +46,9 @@ public class SpawnerManager : MonoBehaviour
         else if (prefab.gameObject.tag == "EnemySnipper")
         {
             //gameObject.GetComponent<EnemySnipperController>().Destroyhandler += callback;
+        }else if (prefab.gameObject.tag == "Box")
+        {
+            gameObject.GetComponent<BoxController>().OnBoxDestroyed += callback;
         }
 
 
