@@ -119,6 +119,6 @@ public class EnemySpawner : MonoBehaviour
     void HanderEnemyDestroyed()
     {
         currentScore += 1;
-        score.text = $"Score {currentScore}";
+        score.text = $"Score: {currentScore}";
     }
 }
