@@ -7,9 +7,13 @@ using Random = UnityEngine.Random;
 public class BoxController : MonoBehaviour
 {
     [SerializeField] List<GameObject> Items;
-    public float dropForce = 0.5f;
+    public float dropForce = 0.1f;
     public event Action OnBoxDestroyed;
 
+    private void Start()
+    {
+        dropForce = 5f;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

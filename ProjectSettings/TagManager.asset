@@ -12,6 +12,7 @@ TagManager:
   - Box
   - Heart
   - Bomb
+  - Arrow_Drop
   layers:
   - Default
   - TransparentFX

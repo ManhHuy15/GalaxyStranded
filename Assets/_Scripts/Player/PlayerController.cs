@@ -58,20 +58,17 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Heart"))
         {
-            Debug.Log("Receive heart");
             collision.gameObject.SetActive(false);
             UpdateHp(currentHealth += 10);
 
         }
-        else if (collision.gameObject.CompareTag("Arrow"))
+        else if (collision.gameObject.CompareTag("Arrow_Drop"))
         {
-            Debug.Log("Receive arrow");
             collision.gameObject.SetActive(false);
             UpdateDisplayArrows(1);
         }
         else if (collision.gameObject.CompareTag("Bomb"))
         {
-            Debug.Log("Receive bomb");
             // TO DO: take dame for player
 
         }
@@ -220,7 +217,6 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.GameOver();
         }
     }
-
     public void UpdateHp( float current)
     {
         healthBar.fillAmount = current / maxHealth;
