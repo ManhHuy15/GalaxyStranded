@@ -1,18 +1,33 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     public static GameManager Instance => instance;
-
+    [SerializeField] private TMP_Text txtPause;
+    bool isRun = true;
     [SerializeField] GameObject gameOverUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         instance = this;
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     // Update is called once per frame
@@ -25,6 +40,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(1);
     }
+    public void RestartGame()
+    {
+        Time.timeScale = 1; 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+    }
 
     public void QuitGame()
     {
@@ -34,7 +54,41 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        gameObject.SetActive(true);
+        if (gameOverUI != null)
+        {
+            gameOverUI.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("GameOverUI is not assigned in the Inspector!");
+        }
+
         Time.timeScale = 0;
+    }
+
+    public void ClickPause()
+    {
+        if (isRun)
+        {
+            PauseGame();
+        }
+        else
+        {
+            ResumeGame();
+        }
+    }
+
+    void PauseGame()
+    {
+        txtPause.text = "Continue";
+        isRun = false;
+        Time.timeScale = 0;
+    }
+
+    void ResumeGame()
+    {
+        txtPause.text = "Pause";
+        isRun = true;
+        Time.timeScale = 1;
     }
 }
