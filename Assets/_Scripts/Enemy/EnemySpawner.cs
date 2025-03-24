@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +17,8 @@ public class EnemySpawner : MonoBehaviour
     private float currentTime;
     private bool stopSpawn = false;
     [SerializeField] private int countEnemy = 0;
+    [SerializeField] private Text score;
+    [SerializeField] private int currentScore = 0;
 
     void Start()
     {
@@ -43,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject enemy = EnemyPrefabs[randomEnemy];
         if(enemy.name == "Slime") enemy.GetComponent<EmenyComtroller>().StopDistance = Random.Range(2f, 5f);
         else enemy.GetComponent<EmenyComtroller>().StopDistance = 1f;
-        SpawnerManager.Instance.SpawnObject(EnemyPrefabs[randomEnemy], pos.position, Quaternion.identity);
+        SpawnerManager.Instance.SpawnObject(EnemyPrefabs[randomEnemy], pos.position, Quaternion.identity, HanderEnemyDestroyed);
         countEnemy++;
     }
 
@@ -113,5 +114,11 @@ public class EnemySpawner : MonoBehaviour
             SpawnRandom();
             currentTime = 0;
         }
+    }
+
+    void HanderEnemyDestroyed()
+    {
+        currentScore += 1;
+        score.text = $"Score {currentScore}";
     }
 }

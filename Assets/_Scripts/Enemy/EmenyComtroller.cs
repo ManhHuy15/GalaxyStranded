@@ -15,7 +15,9 @@ public class EmenyComtroller : MonoBehaviour
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private GameObject healtTextPrefab;
 
-    public static event Action OnEnemyDestroyed;
+
+    public event Action OnEnemyDestroyed;
+
 
 
     private float currentTime = 0f;
@@ -160,5 +162,6 @@ public class EmenyComtroller : MonoBehaviour
     void OnDead()
     {
         gameObject.SetActive(false);
+        OnEnemyDestroyed = null;
     }
 }

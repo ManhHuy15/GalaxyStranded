@@ -14,13 +14,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Image cooldownImage;
     [SerializeField] private Text numberArrow;
-    [SerializeField] private Text score;
     [SerializeField] private bool isSword;
     [SerializeField] private int totalArrow = 10;
     [SerializeField] private float _moveSpeed = 2f;
     [SerializeField] private Image healthBar;
     [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private int currentScore = 0;
 
     private float currentHealth;
     private List<GameObject> PlayerIdle = new List<GameObject>();
@@ -46,7 +44,6 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.fillAmount = currentHealth / maxHealth;
         UpdateDisplayArrows();
-        EmenyComtroller.OnEnemyDestroyed += HanderEnemyDestroyed;
     }
 
     void Update()
@@ -192,16 +189,7 @@ public class PlayerController : MonoBehaviour
         numberArrow.text = totalArrow.ToString();
     }
 
-    void HanderEnemyDestroyed()
-    {
-        UpdateScore();
-    }
-
-    private void UpdateScore(int scoreIncrease = 1)
-    {
-        currentScore += scoreIncrease;
-        score.text = $"Score: {currentScore}";
-    }
+   
 
     private void SwapWeapon()
     {
