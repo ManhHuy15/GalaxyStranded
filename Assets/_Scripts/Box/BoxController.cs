@@ -42,7 +42,7 @@ public class BoxController : MonoBehaviour
         if (rb != null)
         {
             Vector2 launchDirection = Random.insideUnitCircle.normalized * dropForce;
-            if(spawnedItem.CompareTag("Arrow"))
+            if(spawnedItem.CompareTag("Arrow_Drop"))
             {
                 int arrowCount = Random.Range(1, 6);
                 for (int i = 0; i < arrowCount; i++)
