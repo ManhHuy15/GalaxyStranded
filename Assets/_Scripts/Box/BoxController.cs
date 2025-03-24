@@ -30,7 +30,8 @@ public class BoxController : MonoBehaviour
         int ramdomIndex = Random.Range(0, Items.Count);
         //SpawnerManager.Instance.SpawnObject(Items[ramdomIndex], position, Quaternion.identity);
 
-        GameObject spawnedItem = Instantiate(Items[ramdomIndex], position, Items[ramdomIndex].transform.rotation);
+       // GameObject spawnedItem = Instantiate(Items[ramdomIndex], position, Items[ramdomIndex].transform.rotation);
+        GameObject spawnedItem = SpawnerManager.Instance.SpawnObject(Items[ramdomIndex], position, Items[ramdomIndex].transform.rotation);
         Rigidbody2D rb = spawnedItem.GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
 
@@ -43,7 +44,8 @@ public class BoxController : MonoBehaviour
                 for (int i = 0; i < arrowCount; i++)
                 {
                     launchDirection = Random.insideUnitCircle.normalized * dropForce;
-                    GameObject arrow = Instantiate(spawnedItem, position, spawnedItem.transform.rotation);
+                    //GameObject arrow = Instantiate(spawnedItem, position, spawnedItem.transform.rotation);
+                    GameObject arrow = SpawnerManager.Instance.SpawnObject(spawnedItem, position, spawnedItem.transform.rotation);
                     Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
                     if (arrowRb != null)
                     {

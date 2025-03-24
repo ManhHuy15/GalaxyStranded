@@ -2,12 +2,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 using Debug = UnityEngine.Debug;
 
 public class PlayerController : MonoBehaviour
 {
-
-    
     [SerializeField] private List<GameObject> BowIdle = new List<GameObject>();
     [SerializeField] private List<GameObject> BowrWalk = new List<GameObject>();
     [SerializeField] private List<GameObject> SwordIdle = new List<GameObject>();
@@ -18,8 +17,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isSword;
     [SerializeField] private int totalArrow = 10;
     [SerializeField] private float _moveSpeed = 2f;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private float maxHealth = 100f;
 
-
+    private float currentHealth;
     private List<GameObject> PlayerIdle = new List<GameObject>();
     private List<GameObject> PlayerWalk = new List<GameObject>();
     private Vector3 _input;
@@ -40,6 +41,8 @@ public class PlayerController : MonoBehaviour
         isSword = false;
         _rb = GetComponent<Rigidbody2D>();
         cooldownImage.fillAmount = 0f;
+        currentHealth = maxHealth;
+        healthBar.fillAmount = currentHealth / maxHealth;
         UpdateDisplayArrows();
     }
 
@@ -57,12 +60,14 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Receive heart");
             collision.gameObject.SetActive(false);
+            UpdateHp(currentHealth += 10);
+
         }
         else if (collision.gameObject.CompareTag("Arrow"))
         {
             Debug.Log("Receive arrow");
             collision.gameObject.SetActive(false);
-            UpdateDisplayArrows(5);
+            UpdateDisplayArrows(1);
         }
         else if (collision.gameObject.CompareTag("Bomb"))
         {
@@ -160,9 +165,9 @@ public class PlayerController : MonoBehaviour
     void Attack()
     {
         if(isSword) return;
-        currentTime += Time.deltaTime;
+            currentTime += Time.deltaTime;
         cooldownImage.fillAmount = 1 - ( currentTime / 1f);
-        if (currentTime < 1f) return;
+            if (currentTime < 1f) return;
 
         if (Input.GetKeyDown(KeyCode.Space) && totalArrow > 0)
         {
@@ -179,7 +184,7 @@ public class PlayerController : MonoBehaviour
             totalArrow--;
             UpdateDisplayArrows();
         }
-    }
+        }
 
     private void UpdateDisplayArrows(int arrow = 0)
     {
@@ -205,5 +210,19 @@ public class PlayerController : MonoBehaviour
             isSword = true;
             _moveSpeed = 3f;
         }
+    }
+
+    public void TakeDame(float dame)
+    {
+        UpdateHp(currentHealth -= dame);
+        if (currentHealth <= 0)
+        {
+            GameManager.Instance.GameOver();
+        }
+    }
+
+    public void UpdateHp( float current)
+    {
+        healthBar.fillAmount = current / maxHealth;
     }
 }
