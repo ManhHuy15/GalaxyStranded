@@ -2,24 +2,14 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BoxController : MonoBehaviour
 {
     [SerializeField] List<GameObject> Items;
     public float dropForce = 0.5f;
-    public static event Action OnBoxDestroyed;
+    public event Action OnBoxDestroyed;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,18 +17,17 @@ public class BoxController : MonoBehaviour
             collision.gameObject.CompareTag("Sword") || 
             collision.gameObject.CompareTag("Bomb"))
         {
-            Debug.Log("Atack box secret");
             Vector2 boxPosition = transform.position;
             gameObject.SetActive(false);
             SpawnRandomItem(boxPosition);
             OnBoxDestroyed?.Invoke();
-            Debug.Log("Box Destroyed!");
+            OnBoxDestroyed = null;
         }
     }
 
     private void SpawnRandomItem(Vector2 position)
     {
-        int ramdomIndex = UnityEngine.Random.Range(0, Items.Count);
+        int ramdomIndex = Random.Range(0, Items.Count);
         //SpawnerManager.Instance.SpawnObject(Items[ramdomIndex], position, Quaternion.identity);
 
         GameObject spawnedItem = Instantiate(Items[ramdomIndex], position, Items[ramdomIndex].transform.rotation);
@@ -47,25 +36,25 @@ public class BoxController : MonoBehaviour
 
         if (rb != null)
         {
-            Vector2 launchDirection = UnityEngine.Random.insideUnitCircle.normalized * dropForce;
+            Vector2 launchDirection = Random.insideUnitCircle.normalized * dropForce;
             if(spawnedItem.CompareTag("Arrow"))
             {
-                int arrowCount = UnityEngine.Random.Range(1, 6);
+                int arrowCount = Random.Range(1, 6);
                 for (int i = 0; i < arrowCount; i++)
                 {
-                    launchDirection = UnityEngine.Random.insideUnitCircle.normalized * dropForce;
+                    launchDirection = Random.insideUnitCircle.normalized * dropForce;
                     GameObject arrow = Instantiate(spawnedItem, position, spawnedItem.transform.rotation);
                     Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
                     if (arrowRb != null)
                     {
                         arrowRb.linearVelocity = launchDirection;
-                        arrowRb.AddTorque(UnityEngine.Random.Range(-3f, 3f), ForceMode2D.Impulse);
+                        arrowRb.AddTorque(Random.Range(-3f, 3f), ForceMode2D.Impulse);
                     }
                 }
             }
             else
             {
-                launchDirection = UnityEngine.Random.insideUnitCircle.normalized * dropForce;
+                launchDirection = Random.insideUnitCircle.normalized * dropForce;
                 rb.linearVelocity = launchDirection;
                 rb.AddTorque(UnityEngine.Random.Range(-3f, 3f), ForceMode2D.Impulse);
             }

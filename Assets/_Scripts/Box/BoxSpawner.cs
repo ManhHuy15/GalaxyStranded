@@ -11,18 +11,12 @@ public class BoxSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        BoxController.OnBoxDestroyed += HanderBoxDestroyed;
     }
 
     // Update is called once per frame
     void Update()
     {
         SpawnBoxWave();
-    }
-
-    private void OnDestroy()
-    {
-        BoxController.OnBoxDestroyed -= HanderBoxDestroyed;
     }
 
     void HanderBoxDestroyed()
@@ -46,7 +40,8 @@ public class BoxSpawner : MonoBehaviour
     void SpawnBox()
     {
         Vector3 spawnPos = GetRandomSpawnPosition(3f);
-        Instantiate(BoxPrefabs, spawnPos, Quaternion.identity);
+        //Instantiate(BoxPrefabs, spawnPos, Quaternion.identity);
+        SpawnerManager.Instance.SpawnObject(BoxPrefabs, spawnPos, Quaternion.identity, HanderBoxDestroyed);
     }
 
     Vector3 GetRandomSpawnPosition(float offset)
