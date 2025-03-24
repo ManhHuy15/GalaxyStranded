@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -13,7 +14,10 @@ public class EmenyComtroller : MonoBehaviour
     [SerializeField] private float attackInterval = 1f;
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private GameObject healtTextPrefab;
-    
+
+    public static event Action OnEnemyDestroyed;
+
+
     private float currentTime = 0f;
     private float currentHp;
     private float distanceToPlayer;
@@ -149,6 +153,7 @@ public class EmenyComtroller : MonoBehaviour
         {
             _animator.SetBool("isDead", true);
             currentHp = maxHP;
+            OnEnemyDestroyed?.Invoke();
         }
     }
 
