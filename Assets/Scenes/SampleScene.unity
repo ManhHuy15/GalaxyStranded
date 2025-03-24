@@ -1081,8 +1081,6 @@ MonoBehaviour:
   countEnemy: 0
   score: {fileID: 1314142032}
   currentScore: 0
-  score: {fileID: 0}
-  currentScore: 0
 --- !u!1 &383124680
 GameObject:
   m_ObjectHideFlags: 0
@@ -3567,7 +3565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1002221581
 Transform:
   m_ObjectHideFlags: 0
@@ -5688,6 +5686,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad72a0e4c139774eae01d5813549787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 2
 --- !u!1 &1509636056
 GameObject:
   m_ObjectHideFlags: 0
