@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text txtPause;
     bool isRun = true;
     [SerializeField] GameObject gameOverUI;
+    [SerializeField] GameObject gamePauseUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         AudioManager.Instance.PlaySoundEffect(SoundEffectType.Click);
+        Time.timeScale = 1;
         SceneManager.LoadSceneAsync(1);
     }
     public void RestartGame()
@@ -46,6 +48,11 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlaySoundEffect(SoundEffectType.Click);
         Time.timeScale = 1; 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+    }
+    public void BackMenu()
+    {
+        AudioManager.Instance.PlaySoundEffect(SoundEffectType.Click);
+        SceneManager.LoadScene("StartGame");
     }
 
     public void QuitGame()
@@ -84,14 +91,14 @@ public class GameManager : MonoBehaviour
 
     void PauseGame()
     {
-        txtPause.text = "Continue";
+        gamePauseUI.SetActive(true);
         isRun = false;
         Time.timeScale = 0;
     }
 
     void ResumeGame()
     {
-        txtPause.text = "Pause";
+        gamePauseUI.SetActive(false);
         isRun = true;
         Time.timeScale = 1;
     }
