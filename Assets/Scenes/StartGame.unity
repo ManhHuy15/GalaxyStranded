@@ -3398,9 +3398,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 569777624}
     m_Modifications:
+    - target: {fileID: 4483611064448627338, guid: ad42606c98304ea59672bb888cd08556, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483611064448627338, guid: ad42606c98304ea59672bb888cd08556, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4483611064774045649, guid: ad42606c98304ea59672bb888cd08556, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.7274554
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 4483611064774045649, guid: ad42606c98304ea59672bb888cd08556, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3408,7 +3416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4483611064774045649, guid: ad42606c98304ea59672bb888cd08556, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.1160218
+      value: 1.81
       objectReference: {fileID: 0}
     - target: {fileID: 4483611064774045649, guid: ad42606c98304ea59672bb888cd08556, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3970,6 +3978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtPause: {fileID: 0}
   gameOverUI: {fileID: 0}
+  gamePauseUI: {fileID: 0}
 --- !u!1 &965714428
 GameObject:
   m_ObjectHideFlags: 0
@@ -5651,14 +5660,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backGroundAudio: {fileID: 1771379046}
   soundEffect: {fileID: 1360640007}
-  swordEffect: {fileID: 0}
+  weaponEffect: {fileID: 0}
+  gameoverEffect: {fileID: 0}
   backGroundClip: {fileID: 8300000, guid: 4f924ad524f3ad042935adf634079adc, type: 3}
-  swordClip: {fileID: 0}
-  swordSlideClip: {fileID: 0}
-  bowClip: {fileID: 0}
-  explosionClip: {fileID: 0}
-  itemClip: {fileID: 0}
-  clickClip: {fileID: 8300000, guid: c583f7f10c50a814aa1fe2dd0a7a0d12, type: 3}
+  gameOverClip: {fileID: 0}
+  listAudioEffectClips:
+  - {fileID: 8300000, guid: d203b0c144de15c4e8fa0c6b09e200fa, type: 3}
+  - {fileID: 8300000, guid: ca61f05afcbac5e48b3635ac81ccdfb7, type: 3}
+  - {fileID: 8300000, guid: 141dd2aa38d8df24ea7e0a270e6f3d1e, type: 3}
+  - {fileID: 8300000, guid: 8481c9a8ca3b51d4f9a4a5ae79403439, type: 3}
+  - {fileID: 8300000, guid: 0b0e96085b867de4f85bd1fb665d1b73, type: 3}
+  - {fileID: 8300000, guid: c583f7f10c50a814aa1fe2dd0a7a0d12, type: 3}
+  - {fileID: 8300000, guid: 06caf5af572e709479a44af9396511d7, type: 3}
+  - {fileID: 8300000, guid: 25ac29cfbff815740978dfe0445ec52d, type: 3}
 --- !u!1001 &1791926001
 PrefabInstance:
   m_ObjectHideFlags: 0

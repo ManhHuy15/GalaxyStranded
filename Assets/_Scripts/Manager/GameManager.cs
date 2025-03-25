@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("GameOverUI is not assigned in the Inspector!");
         }
-
+        AudioManager.Instance.GameOverMusic();
         Time.timeScale = 0;
     }
 

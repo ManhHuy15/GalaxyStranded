@@ -221,9 +221,11 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDame(float dame)
     {
+        AudioManager.Instance.PlaySoundEffect(SoundEffectType.Hurt);
         UpdateHp(currentHealth -= dame);
         if (currentHealth <= 0)
         {
+            AudioManager.Instance.PlaySoundEffect(SoundEffectType.Die);
             GameManager.Instance.GameOver();
         }
     }

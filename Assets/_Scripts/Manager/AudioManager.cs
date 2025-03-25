@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -9,13 +10,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource backGroundAudio;
     [SerializeField] private AudioSource soundEffect;
     [SerializeField] private AudioSource weaponEffect;
+    [SerializeField] private AudioSource gameoverEffect;
     [SerializeField] private AudioClip backGroundClip;
-    [SerializeField] private AudioClip swordClip;
-    [SerializeField] private AudioClip swordSlideClip;
-    [SerializeField] private AudioClip bowClip;
-    [SerializeField] private AudioClip explosionClip;
-    [SerializeField] private AudioClip itemClip;
-    [SerializeField] private AudioClip clickClip;
+    [SerializeField] private AudioClip gameOverClip;
+    [SerializeField] private List<AudioClip> listAudioEffectClips;
 
     void Start()
     {
@@ -34,31 +32,28 @@ public class AudioManager : MonoBehaviour
         switch (effectType)
         {
             case SoundEffectType.Sword:
-                PlayClip(weaponEffect, swordClip);
-                break;
             case SoundEffectType.SwordSlide:
-                PlayClip(weaponEffect, swordSlideClip);
-                break;
             case SoundEffectType.Bow:
-                PlayClip(weaponEffect, bowClip);
-                break;
             case SoundEffectType.Explosion:
-                PlayClip(soundEffect, explosionClip);
+                PlayClip(weaponEffect, listAudioEffectClips[effectType.GetHashCode()]);
                 break;
-            case SoundEffectType.Item:
-                PlayClip(soundEffect, itemClip);
-                break;
-            case SoundEffectType.Click:
-                PlayClip(soundEffect, clickClip);
+            default:
+                PlayClip(soundEffect, listAudioEffectClips[effectType.GetHashCode()]);
                 break;
         }
-        
     }
 
     private void PlayClip(AudioSource audio, AudioClip clip)
     {
         audio.clip = clip;
         audio.Play();
+    }
+
+    public void GameOverMusic()
+    {
+        backGroundAudio.Stop();
+        gameoverEffect.clip = gameOverClip;
+        gameoverEffect.Play();
     }
 }
 
@@ -70,5 +65,7 @@ public enum SoundEffectType
     Bow,
     Explosion,
     Item,
-    Click
+    Click,
+    Hurt,
+    Die
 }
