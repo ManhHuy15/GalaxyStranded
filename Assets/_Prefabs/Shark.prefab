@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 2
-  maxHP: 4
+  maxHP: 5
   avoidRadius: 0.4
   enemyLayer:
     serializedVersion: 2

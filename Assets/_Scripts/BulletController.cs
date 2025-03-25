@@ -42,7 +42,7 @@ public class BulletController : MonoBehaviour
             Vector2 force = direction * knockBackForce;
             gameObject.SetActive(false);
 
-            collision.gameObject.GetComponent<EmenyComtroller>().TakeDame(1, force);
+            collision.gameObject.GetComponent<EmenyComtroller>().TakeDame(2f, force);
         }
         else if (gameObject.name == "Arrow" && collision.gameObject.CompareTag("Box"))
         {

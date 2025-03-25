@@ -127,13 +127,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 1
-  maxHP: 2
+  maxHP: 3
   avoidRadius: 0.4
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1024
   isSlime: 1
-  stopDistance: 5
+  stopDistance: 3.5530782
   attackInterval: 3
   ballPrefab: {fileID: 1080753226878608928, guid: f0c02732767a4f84ba8cbe2f0ddb259a, type: 3}
   healtTextPrefab: {fileID: 1438259848564295249, guid: 65be46340d8ec7a4880bd6db1701b088, type: 3}

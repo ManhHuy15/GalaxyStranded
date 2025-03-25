@@ -38,16 +38,19 @@ public class GameManager : MonoBehaviour
 
     public void PlayGame()
     {
+        AudioManager.Instance.PlaySoundEffect(SoundEffectType.Click);
         SceneManager.LoadSceneAsync(1);
     }
     public void RestartGame()
     {
+        AudioManager.Instance.PlaySoundEffect(SoundEffectType.Click);
         Time.timeScale = 1; 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
     }
 
     public void QuitGame()
     {
+        AudioManager.Instance.PlaySoundEffect(SoundEffectType.Click);
         Application.Quit();
         EditorApplication.isPlaying = false;
     }
@@ -68,6 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void ClickPause()
     {
+        AudioManager.Instance.PlaySoundEffect(SoundEffectType.Click);
         if (isRun)
         {
             PauseGame();

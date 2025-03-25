@@ -16,7 +16,7 @@ public class HitBoxController : MonoBehaviour
             Vector2 force = direction * knockBackForce;
 
             AudioManager.Instance.PlaySoundEffect(SoundEffectType.SwordSlide);
-            collision.gameObject.GetComponent<EmenyComtroller>().TakeDame(2f, force);
+            collision.gameObject.GetComponent<EmenyComtroller>().TakeDame(4f, force);
         }
     }
 }

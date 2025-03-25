@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SpawnerManager : MonoBehaviour
@@ -43,10 +44,11 @@ public class SpawnerManager : MonoBehaviour
         {
             gameObject.GetComponent<EmenyComtroller>().OnEnemyDestroyed += callback;
         }
-        else if (prefab.gameObject.tag == "EnemySnipper")
+        else if (prefab.gameObject.tag == "DameText")
         {
-            //gameObject.GetComponent<EnemySnipperController>().Destroyhandler += callback;
-        }else if (prefab.gameObject.tag == "Box")
+            gameObject.GetComponent<TextMeshProUGUI>().text = prefab.GetComponent<TextMeshProUGUI>().text;
+        }
+        else if (prefab.gameObject.tag == "Box")
         {
             gameObject.GetComponent<BoxController>().OnBoxDestroyed += callback;
         }

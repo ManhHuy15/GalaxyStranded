@@ -8,13 +8,14 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource backGroundAudio;
     [SerializeField] private AudioSource soundEffect;
-    [SerializeField] private AudioSource swordEffect;
+    [SerializeField] private AudioSource weaponEffect;
     [SerializeField] private AudioClip backGroundClip;
     [SerializeField] private AudioClip swordClip;
     [SerializeField] private AudioClip swordSlideClip;
     [SerializeField] private AudioClip bowClip;
     [SerializeField] private AudioClip explosionClip;
     [SerializeField] private AudioClip itemClip;
+    [SerializeField] private AudioClip clickClip;
 
     void Start()
     {
@@ -33,24 +34,32 @@ public class AudioManager : MonoBehaviour
         switch (effectType)
         {
             case SoundEffectType.Sword:
-                swordEffect.clip = swordClip;
+                PlayClip(weaponEffect, swordClip);
                 break;
             case SoundEffectType.SwordSlide:
-                swordEffect.clip = swordSlideClip;
+                PlayClip(weaponEffect, swordSlideClip);
                 break;
             case SoundEffectType.Bow:
-                soundEffect.clip = bowClip;
+                PlayClip(weaponEffect, bowClip);
                 break;
             case SoundEffectType.Explosion:
-                soundEffect.clip = explosionClip;
+                PlayClip(soundEffect, explosionClip);
                 break;
             case SoundEffectType.Item:
-                soundEffect.clip = itemClip;
+                PlayClip(soundEffect, itemClip);
+                break;
+            case SoundEffectType.Click:
+                PlayClip(soundEffect, clickClip);
                 break;
         }
-        soundEffect.Play();
+        
     }
 
+    private void PlayClip(AudioSource audio, AudioClip clip)
+    {
+        audio.clip = clip;
+        audio.Play();
+    }
 }
 
 
@@ -60,5 +69,6 @@ public enum SoundEffectType
     SwordSlide,
     Bow,
     Explosion,
-    Item
+    Item,
+    Click
 }

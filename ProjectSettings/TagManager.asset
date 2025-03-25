@@ -13,6 +13,7 @@ TagManager:
   - Heart
   - Bomb
   - Arrow_Drop
+  - DameText
   layers:
   - Default
   - TransparentFX
