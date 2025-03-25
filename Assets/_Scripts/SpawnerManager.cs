@@ -41,7 +41,7 @@ public class SpawnerManager : MonoBehaviour
 
         if (prefab.gameObject.tag == "Enemy")
         {
-            //gameObject.GetComponent<EnemyController>().Destroyhandler += callback;
+            gameObject.GetComponent<EmenyComtroller>().OnEnemyDestroyed += callback;
         }
         else if (prefab.gameObject.tag == "EnemySnipper")
         {

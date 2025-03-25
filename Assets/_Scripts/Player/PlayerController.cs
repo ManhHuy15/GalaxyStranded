@@ -197,6 +197,8 @@ public class PlayerController : MonoBehaviour
         numberArrow.text = totalArrow.ToString();
     }
 
+   
+
     private void SwapWeapon()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
