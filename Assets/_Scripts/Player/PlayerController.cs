@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private List<GameObject> BowrWalk = new List<GameObject>();
     [SerializeField] private List<GameObject> SwordIdle = new List<GameObject>();
     [SerializeField] private List<GameObject> SwordWalk = new List<GameObject>();
+    [SerializeField] private List<GameObject> HitBox = new List<GameObject>();
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Image cooldownImage;
     [SerializeField] private Text numberArrow;
@@ -60,7 +61,8 @@ public class PlayerController : MonoBehaviour
         {
             AudioManager.Instance.PlaySoundEffect(SoundEffectType.Item);
             collision.gameObject.SetActive(false);
-            UpdateHp(currentHealth += 10);
+            currentHealth = currentHealth + 10 > maxHealth ? maxHealth : currentHealth + 10;
+            UpdateHp(currentHealth);
 
         }
         else if (collision.gameObject.CompareTag("Arrow_Drop"))
@@ -135,16 +137,19 @@ public class PlayerController : MonoBehaviour
             {
                 DisableAllObject();
                 PlayerIdle[1].SetActive(true);
+                HitBox[1].SetActive(false);
                 
             }
             else if (lastDirect.y < 0 && !PlayerIdle[0].activeSelf)
             {
                 DisableAllObject();
                 PlayerIdle[0].SetActive(true);
+                HitBox[0].SetActive(false);
             }else if (lastDirect.y > 0 && !PlayerIdle[2].activeSelf)
             {
                 DisableAllObject();
                 PlayerIdle[2].SetActive(true);
+                HitBox[2].SetActive(false);
             }
         }
     }

@@ -7,7 +7,7 @@ public class BombController : MonoBehaviour
     public float timeDelay = 1f;
     public Animator _animator;
     private float knockBackForce = 10f;
-    private float damage = 10f;
+    private float damage = 50f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -5,8 +5,9 @@ public class PlayerAttackController : MonoBehaviour
 
     private Animator _animator;
     private float currentTime;
-    private float knockBackForce = 8f;
     [SerializeField] private bool isSword;
+    [SerializeField] private GameObject hitbox;
+
 
     void Start()
     {
@@ -31,8 +32,9 @@ public class PlayerAttackController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isSword)
         {
-            AudioManager.Instance.PlaySoundEffect(SoundEffectType.Sword);
+            
             _animator.SetBool("isAttack", true);
+            
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
@@ -41,19 +43,16 @@ public class PlayerAttackController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void StartAttack()
     {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Vector3 parentPos = transform.parent.position;
-
-            Vector2 direction =   collision.gameObject.transform.position - parentPos ;
-            direction.Normalize();
-
-            Vector2 force = direction * knockBackForce;
-
-            AudioManager.Instance.PlaySoundEffect(SoundEffectType.SwordSlide);
-            collision.gameObject.GetComponent<EmenyComtroller>().TakeDame(2f, force);
-        }
+        AudioManager.Instance.PlaySoundEffect(SoundEffectType.Sword);
+        hitbox.SetActive(true);
     }
+
+    public void StopAttack()
+    {
+        hitbox.SetActive(false);
+    }
+
+ 
 }

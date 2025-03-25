@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource backGroundAudio;
     [SerializeField] private AudioSource soundEffect;
+    [SerializeField] private AudioSource swordEffect;
     [SerializeField] private AudioClip backGroundClip;
     [SerializeField] private AudioClip swordClip;
     [SerializeField] private AudioClip swordSlideClip;
@@ -32,10 +33,10 @@ public class AudioManager : MonoBehaviour
         switch (effectType)
         {
             case SoundEffectType.Sword:
-                soundEffect.clip = swordClip;
+                swordEffect.clip = swordClip;
                 break;
             case SoundEffectType.SwordSlide:
-                soundEffect.clip = swordSlideClip;
+                swordEffect.clip = swordSlideClip;
                 break;
             case SoundEffectType.Bow:
                 soundEffect.clip = bowClip;
