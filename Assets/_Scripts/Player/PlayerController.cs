@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private List<GameObject> BowrWalk = new List<GameObject>();
     [SerializeField] private List<GameObject> SwordIdle = new List<GameObject>();
     [SerializeField] private List<GameObject> SwordWalk = new List<GameObject>();
+    [SerializeField] private List<GameObject> HitBox = new List<GameObject>();
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Image cooldownImage;
     [SerializeField] private Text numberArrow;
@@ -58,12 +59,15 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Heart"))
         {
+            AudioManager.Instance.PlaySoundEffect(SoundEffectType.Item);
             collision.gameObject.SetActive(false);
-            UpdateHp(currentHealth += 10);
+            currentHealth = currentHealth + 10 > maxHealth ? maxHealth : currentHealth + 10;
+            UpdateHp(currentHealth);
 
         }
         else if (collision.gameObject.CompareTag("Arrow_Drop"))
         {
+            AudioManager.Instance.PlaySoundEffect(SoundEffectType.Item);
             collision.gameObject.SetActive(false);
             UpdateDisplayArrows(1);
         }
@@ -133,16 +137,19 @@ public class PlayerController : MonoBehaviour
             {
                 DisableAllObject();
                 PlayerIdle[1].SetActive(true);
+                HitBox[1].SetActive(false);
                 
             }
             else if (lastDirect.y < 0 && !PlayerIdle[0].activeSelf)
             {
                 DisableAllObject();
                 PlayerIdle[0].SetActive(true);
+                HitBox[0].SetActive(false);
             }else if (lastDirect.y > 0 && !PlayerIdle[2].activeSelf)
             {
                 DisableAllObject();
                 PlayerIdle[2].SetActive(true);
+                HitBox[2].SetActive(false);
             }
         }
     }
@@ -168,6 +175,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && totalArrow > 0)
         {
+            AudioManager.Instance.PlaySoundEffect(SoundEffectType.Bow);
             GameObject bows = GameObject.FindGameObjectWithTag("Bow");
             Vector3 spawnOffset = bows.transform.forward * 0.5f;
             Vector3 pos = bows.transform.position + spawnOffset;
