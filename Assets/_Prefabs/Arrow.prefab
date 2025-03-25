@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
+  arrowDropPrefab: {fileID: 6418307849069838675, guid: 2bf0e632dc871ea4fb2e59488e1630fa, type: 3}
 --- !u!50 &-4503414089748160693
 Rigidbody2D:
   serializedVersion: 5

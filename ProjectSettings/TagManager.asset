@@ -14,6 +14,7 @@ TagManager:
   - Bomb
   - Arrow_Drop
   - DameText
+  - Wall
   layers:
   - Default
   - TransparentFX
