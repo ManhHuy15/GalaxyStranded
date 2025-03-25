@@ -35,6 +35,7 @@ public class BombController : MonoBehaviour
 
     private void Blast()
     {
+        AudioManager.Instance.PlaySoundEffect(SoundEffectType.Explosion);
         _animator.SetBool("isExplosion", true);
     }
 

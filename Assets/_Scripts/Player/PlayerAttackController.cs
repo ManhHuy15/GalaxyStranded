@@ -31,6 +31,7 @@ public class PlayerAttackController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isSword)
         {
+            AudioManager.Instance.PlaySoundEffect(SoundEffectType.Sword);
             _animator.SetBool("isAttack", true);
         }
 
@@ -51,6 +52,7 @@ public class PlayerAttackController : MonoBehaviour
 
             Vector2 force = direction * knockBackForce;
 
+            AudioManager.Instance.PlaySoundEffect(SoundEffectType.SwordSlide);
             collision.gameObject.GetComponent<EmenyComtroller>().TakeDame(2f, force);
         }
     }

@@ -58,12 +58,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Heart"))
         {
+            AudioManager.Instance.PlaySoundEffect(SoundEffectType.Item);
             collision.gameObject.SetActive(false);
             UpdateHp(currentHealth += 10);
 
         }
         else if (collision.gameObject.CompareTag("Arrow_Drop"))
         {
+            AudioManager.Instance.PlaySoundEffect(SoundEffectType.Item);
             collision.gameObject.SetActive(false);
             UpdateDisplayArrows(1);
         }
@@ -168,6 +170,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && totalArrow > 0)
         {
+            AudioManager.Instance.PlaySoundEffect(SoundEffectType.Bow);
             GameObject bows = GameObject.FindGameObjectWithTag("Bow");
             Vector3 spawnOffset = bows.transform.forward * 0.5f;
             Vector3 pos = bows.transform.position + spawnOffset;

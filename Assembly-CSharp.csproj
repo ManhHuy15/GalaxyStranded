@@ -111,6 +111,7 @@
     <Compile Include="Assets\_Scripts\MenuGame\MainMenu.cs" />
     <Compile Include="Assets\_Scripts\WaveUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\_Scripts\AudioManager.cs" />
     <Compile Include="Assets\_Scripts\DameText.cs" />
   </ItemGroup>
   <ItemGroup>
