@@ -76,4 +76,10 @@ public class BoxController : MonoBehaviour
             }
         }
     }
+
+    private void OnDisable()
+    {
+        OnBoxDestroyed?.Invoke();
+        OnBoxDestroyed = null;
+    }
 }

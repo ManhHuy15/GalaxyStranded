@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4262145861760877434}
   - component: {fileID: 9134756482442133421}
   - component: {fileID: 453025958645948895}
+  - component: {fileID: 7054338430700835}
   m_Layer: 0
   m_Name: Arrow_drop
   m_TagString: Arrow_Drop
@@ -162,3 +163,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9647059, y: 0.21176471}
   m_EdgeRadius: 0
+--- !u!114 &7054338430700835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418307849069838675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d1b5fe958f5d48b2071d07ce28e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceLimit: 30

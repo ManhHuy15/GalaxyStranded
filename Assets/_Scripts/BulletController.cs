@@ -6,24 +6,13 @@ public class BulletController : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private GameObject arrowDropPrefab;
-    private Camera mainCamera;
-    float distanceLimit = 15f;
     private float knockBackForce = 3f;
     void Start()
     {
-        this.mainCamera = Transform.FindAnyObjectByType<Camera>();
     }
     void Update()
     {
         transform.Translate(speed * Time.deltaTime, 0, 0);
-        DespawnByDistance();
-    }
-
-    public void DespawnByDistance()
-    {
-        float distance = Vector3.Distance(transform.position, mainCamera.transform.position);
-        if (distance < distanceLimit) return;
-        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

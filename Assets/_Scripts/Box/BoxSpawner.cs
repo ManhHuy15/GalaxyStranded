@@ -5,7 +5,7 @@ public class BoxSpawner : MonoBehaviour
 {
     [SerializeField] protected GameObject BoxPrefabs;
 
-    int boxCount = 6;
+    int boxCount = 10;
     float currentTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,7 +39,7 @@ public class BoxSpawner : MonoBehaviour
 
     void SpawnBox()
     {
-        Vector3 spawnPos = GetRandomSpawnPosition(3f);
+        Vector3 spawnPos = GetRandomSpawnPosition(5f);
         //Instantiate(BoxPrefabs, spawnPos, Quaternion.identity);
         SpawnerManager.Instance.SpawnObject(BoxPrefabs, spawnPos, Quaternion.identity, HanderBoxDestroyed);
     }

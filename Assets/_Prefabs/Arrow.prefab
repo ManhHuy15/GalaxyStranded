@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4314912817419069891}
   - component: {fileID: -4503414089748160693}
   - component: {fileID: -3359448422635607350}
+  - component: {fileID: -6442112005008565986}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Arrow
@@ -177,3 +178,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.21197319, y: 0.18063381}
   m_EdgeRadius: 0
+--- !u!114 &-6442112005008565986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730310971612406500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d1b5fe958f5d48b2071d07ce28e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceLimit: 12

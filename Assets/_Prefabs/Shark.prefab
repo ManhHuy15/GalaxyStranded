@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1297483341557333073}
   - component: {fileID: 6606957419921189819}
   - component: {fileID: 3649692842598220348}
+  - component: {fileID: -2628994160942493754}
   m_Layer: 10
   m_Name: Shark
   m_TagString: Enemy
@@ -202,6 +203,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.048991024, y: 0.047459662}
   m_Size: {x: 0.54375756, y: 0.998521}
   m_Direction: 0
+--- !u!114 &-2628994160942493754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355252304054122588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d1b5fe958f5d48b2071d07ce28e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceLimit: 25
 --- !u!1 &1267038959703339966
 GameObject:
   m_ObjectHideFlags: 0
