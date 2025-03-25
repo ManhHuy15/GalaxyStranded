@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BulletController : MonoBehaviour
 {
 
     [SerializeField] private float speed;
+    [SerializeField] private GameObject arrowDropPrefab;
     private Camera mainCamera;
     float distanceLimit = 15f;
     private float knockBackForce = 3f;
@@ -47,6 +49,13 @@ public class BulletController : MonoBehaviour
         else if (gameObject.name == "Arrow" && collision.gameObject.CompareTag("Box"))
         {
             gameObject.SetActive(false);
+        }else if(collision.gameObject.tag == "Wall")
+        {
+            gameObject.SetActive(false);
+            if(gameObject.name == "Arrow")
+            {
+                SpawnerManager.Instance.SpawnObject(arrowDropPrefab, transform.position, transform.localRotation);
+            }
         }
 
         

@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
             PlayerIdle = BowIdle;
             PlayerWalk = BowrWalk;
             isSword = false;
-            _moveSpeed = 2f;
+            _moveSpeed = 2.5f;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -215,7 +215,7 @@ public class PlayerController : MonoBehaviour
             PlayerIdle = SwordIdle;
             PlayerWalk = SwordWalk;
             isSword = true;
-            _moveSpeed = 3f;
+            _moveSpeed = 3.5f;
         }
     }
 
